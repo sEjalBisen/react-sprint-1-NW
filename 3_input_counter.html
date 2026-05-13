@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InputCounter</title>
+     <!--React, is an algo that manipulates the UI-->
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+     <!--React DOM is a support that actually support react-->
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+     <!--Babel, Transpiler, where this divides JS and HTML from JSX-->
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+     <style>
+        .set{
+            border-bottom: 1px solid;
+            padding-bottom: 1rem;
+        }
+     </style>
+</head>
+<body>
+    <div id="root"></div>
+    <p>Vite!</p>
+    <script type="text/babel">
+        function InputCounter(){
+            const [count ,setCount] = React.useState(0);
+            const [value,setValue] = React.useState("");//value=""
+            const increment = () =>{
+                    setCount(count + 1);
+            };
+            const decrement = () =>{
+                setCount(count - 1);
+            }
+            const handleValue = (event)=>{// handler function which actually handle any change in input element
+               // console.log(event.target.value);// event = onChange , Target = input, value
+               setValue(event.target.value);// we are using state variables to control the UI of page
+          }
+          return <div>
+                <div className="set">
+                    <input type="text" value={value}  
+                     onChange={handleValue}/> {/* we are handling the UI update of Input with state*/}
+                    <button>Set</button>
+                </div>
+                    <button onClick={increment}>+</button>
+                    <span>{count}</span>
+                    <button onClick={decrement}>-</button>
+                </div>       
+        }
+
+       const root =  ReactDOM.createRoot(document.getElementById("root"));
+       root.render(<InputCounter></InputCounter>);
+    </script>
+</body>
+</html>
+
+<!--
+ 1)when we control UI change of elements like input using state then these components
+ are known to be controlled components
+ 2)We need a thing that creates us a normal react app structure and also i should provide
+ various functionality in order to build a complex application using react. 
+ 3)We have 3 main Bundlers where, Create-react-app(CRA),Vite,Parcel
+ 4) npm = node packge modules it is not, it is except node packge modules
+ 5) npm -> is a ocean of pacakges that server what ever a developer needs to build
+ 6) npx create-react-app=>to create a react app ,npx -> executing the npm modules->
