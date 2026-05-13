@@ -1,12 +1,8 @@
-# How UI is rendered in real-life apps
-* We have an initial render -> loader/placeholder
-* Parallely browser make a request for the data
-* Replace the initial loader/Placeholder with actual data
+# React + Vite
 
-# React must provide feature to just call a function at different stages of an app
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-flag=false,data=[] //here we are loading the placeholder
+Currently, two official plugins are available:
 
-1. render the UI -> Loading
-2. Make a request to the server of app
-3. get the data -> data state -> rerender the page
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
